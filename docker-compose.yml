@@ -2,18 +2,7 @@ version: '3'
 services:
   web:
     build:
-      context: . #where to pull all files and folders from (this diretory)
-      dockerfile: Dockerfile.dev
+      context: .
+      dockerfile: Dockerfile
     ports:
-     - "3000:3000"
-    volumes:
-      - /app/node_modules # do not tray nad map the node modules folder (it doesnt exist)
-      - .:/app # do map everything else from current directory into the app folder of container  
-  tests:
-    build:
-      context: . #where to pull all files and folders from (this diretory)
-      dockerfile: Dockerfile.dev
-    volumes:
-      - /app/node_modules # do not tray nad map the node modules folder (it doesnt exist)
-      - .:/app # do map everything else from current directory into the app folder of container 
-    command: ["npm", "run", "test"]
+      - '80:80'
